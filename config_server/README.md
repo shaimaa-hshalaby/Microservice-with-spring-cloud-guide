@@ -173,10 +173,51 @@ spring.profiles.active = dev
 
 ![image](https://github.com/shaimaa-hshalaby/Microservice-with-spring-cloud-guide/assets/3264417/49078838-65b4-4740-ba14-caf6feab4328)
 
+--------
+
+## How to read the configuration programmatically inside the code?
+
+you can use one of the following methods
+- use @Value annotation with properties
+- create a class to map to the entire configuration file and marked it with @ConfigurationProperties annotation
+
+
+#### use @Value annotation
+we have used it before in this tutorial in the EmployeeRestController to read the configuration from the configuration file
+
+```
+@RestController
+@RequestMapping("/employee")
+public class EmployeeController {
+	
+	@Value("${employee.name}")
+	private String employeeName;
+	
+	@Value("${employee.title}")
+	private String employeeTitle;
+	
+	@GetMapping("/name")
+	public String getEmployeeName() {
+		return this.employeeName;
+		
+	}
+	
+	@GetMapping("/title")
+	public String getEmployeeTitle() {
+		return this.employeeTitle;
+		
+	}
+
+```
+
+#### use @ConfigurationProperties
+Spring Boot @ConfigurationProperties is letting developer maps the entire .properties and yml file into an object easily. 
+
 
 
 ---------
 ### To do List
 
 1. How to add secured configuration in vault
+2. how to refresh the configuration values in the microservice client
   
