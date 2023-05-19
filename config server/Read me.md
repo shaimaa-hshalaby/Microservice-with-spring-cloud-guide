@@ -68,7 +68,7 @@ As we mentioned before, there are 3 types of search location:
 - classpath
 - git repository
 
-###File System search location
+### File System search location
 
 1. The active profile property in the config server application.properties should be native if the search location would be the file system, so add the following property:
 
@@ -119,4 +119,26 @@ public class EmployeeController {
 
 
 ### Classpath search location
+
+1. create a directory inside the classpath - under the resources folder - as shown below
+
+![image](https://github.com/shaimaa-hshalaby/Microservice-with-spring-cloud-guide/assets/3264417/193f2bec-b9cd-47a5-b6ac-69cdaef12870)
+
+2. add the configuration files of the config client microservice under this directory
+
+3. The config server active profile property should be native also with the classpath search location.
+   Then add the location of the configuration directory under the classpath in application.properties as follows:
+
+```
+spring.profiles.active = native
+spring.cloud.config.server.native.searchLocations= classpath:/{config-dir-name}
+```
+
+
+### Git repository search location
+
+-------
+### To do List
+
+1. How to add secured configuration in vault
   
