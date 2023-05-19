@@ -2,3 +2,4 @@
 a guide to implement a microservice using Spring cloud - used in my courses
 
 [Config Server tutorial](config_server)
+[Service Descovery - Naming server tutorial](naming_server)
