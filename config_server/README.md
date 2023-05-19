@@ -213,8 +213,123 @@ public class EmployeeController {
 #### use @ConfigurationProperties
 Spring Boot @ConfigurationProperties is letting developer maps the entire .properties and yml file into an object easily. 
 
+we can create a class that bind the data in the properties file to the class properties as follows:
+
+1. the configuration properties file is shown below:
+
+![image](https://github.com/shaimaa-hshalaby/Microservice-with-spring-cloud-guide/assets/3264417/89aa2d6e-6770-445c-b12b-7dd6852da7c9)
+
+2. the prefix of all shown properties is employee so we can define the class as follows
+```
+@ConfigurationProperties("employee")
+public class MyProperties {
+	
+	// binded to employee.name
+	private String name;
+	
+	// binded to employee.title
+	private String title;
+	
+	// binded to employee.address
+	private Address address;
+	
+	public String getName() {
+		return name;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+```
+
+3. the complex property should be represented as a static public inner class inside the MyProperties class as the employee.address property
+
+```
+public static class Address{
+	private String country;
+	private String city;
+	public String getCountry() {
+		return country;
+	}
+	public void setCountry(String country) {
+		this.country = country;
+	}
+	public String getCity() {
+		return city;
+	}
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+}
+
+```
+
+4. Enable the scan of the configuration property class by adding **@EnableConfigurationProperties(MyProperties.class)** to the spring boot bootstrap class as follows
+
+```
+@SpringBootApplication
+@EnableConfigurationProperties(MyProperties.class)
+public class EmployeeServiceApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(EmployeeServiceApplication.class, args);
+	}
+
+}
+```
+
+5. To read the configuration into our controller, we should inject the Configuration properties object inside our controller as follows:
+
+```
+@RestController
+@RequestMapping("/employee")
+public class EmployeeController {
+	
+	private final MyProperties myProp;
+	
+	public EmployeeController(MyProperties myProp) {
+		this.myProp = myProp;
+	}
+	
+	@GetMapping("/name")
+	public String getEmployeeName() {
+		return this.myProp.getName();
+		
+	}
+	
+	@GetMapping("/title")
+	public String getEmployeeTitle() {
+		return this.myProp.getTitle();
+		
+	}
+	
+	@GetMapping("/address")
+	public Address getEmployeeCountry(){
+		return this.myProp.getAddress();
+	}
 
 
+}
+
+```
 ---------
 ### To do List
 
