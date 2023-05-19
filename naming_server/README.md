@@ -38,4 +38,17 @@ The solution for a cloud-based microservice environment is to use a service disc
  # Building our Spring Eureka Service
  
  1. navigate to the spring intializer tool https://start.spring.io/
- 2. 
+ 2. choose the following configuration for this exercise
+    - project -> Maven
+    - Language -> Java
+    - Spring boot version -> 2.7.12
+    - packaging -> jar
+    - java version -> 11
+
+ 3. add the following dependency
+    - Eureka Server
+
+    ![image](https://github.com/shaimaa-hshalaby/Microservice-with-spring-cloud-guide/assets/3264417/9c762b07-1cd9-4915-8917-6d434d7d2982)
+
+
+
