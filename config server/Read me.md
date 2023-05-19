@@ -153,6 +153,29 @@ spring.cloud.config.server.git.uri = https://github.com/shaimaa-hshalaby/config-
 5. follow the steps explained before to create Restcontroller at the client side and test if the client microservice able to read the configuration or not.
 
 -------
+
+## How to create a separated configuration file for each environment dev, test, production and so on?
+
+The naming convention for the application configuration files are appname-env. properties or appname-env.yml 
+
+1. we need to define the active profile property in the microservice config client application.properties with the environement name as follows:
+```
+spring.profiles.active = dev
+```
+
+2. name the microservice configuration file under the config server search location with the following convention 
+```
+{microservice_name}-{active_profile}.properties
+```
+for Example: employeeservice-dev.properties
+
+3. you can add configuration files for different environment as much as you can if you follow the mentioned convention
+
+![image](https://github.com/shaimaa-hshalaby/Microservice-with-spring-cloud-guide/assets/3264417/49078838-65b4-4740-ba14-caf6feab4328)
+
+
+
+---------
 ### To do List
 
 1. How to add secured configuration in vault
