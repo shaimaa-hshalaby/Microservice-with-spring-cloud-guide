@@ -8,9 +8,9 @@
 2. Class path
 3. Git repository
 
-# Setup Config server steps
+## Setup Config server steps
 
-### Initialize Spring boot application
+### Initialize config server
 1. navigate to https://start.spring.io/
 2. choose the following configuration for this exercise
   - project -> Maven
@@ -24,6 +24,99 @@
   - Config Server 
   - Spring Boot DevTools (Optional)
 
-![image](https://github.com/shaimaa-hshalaby/Microservice-with-spring-cloud-guide/assets/3264417/fe1c7e1e-2e69-4587-aaa5-641b4ca5da3c)
+![image](https://github.com/shaimaa-hshalaby/Microservice-with-spring-cloud-guide/assets/3264417/f309b269-0896-433d-b8b3-6ffe239d7f08)
 
+4. generate the spring boot maven project
+
+5. import the generated project to your IDE
+
+6. Add application name and server port to the application.properties
+
+```
+spring.application.name = config-server
+server.port = 8071
+```
+
+7. Enable the config server by adding the annotation **@EnableConfigServer** to the spring bootstrap class
+
+### Initialize the Config client microservice
+
+1. navigate to https://start.spring.io/
+2. choose the following configuration for this exercise
+  - project -> Maven
+  - Language -> Java 
+  - Spring boot version -> 2.7.12
+  - packaging -> jar
+  - java version -> 11
+
+3. add the following dependencies
+  - Spring Web 
+  - Config Client 
+  - Spring Boot DevTools (Optional)
+
+![image](https://github.com/shaimaa-hshalaby/Microservice-with-spring-cloud-guide/assets/3264417/e0a4eda4-e307-40bb-85af-2479546d97e6)
+
+4. import the generated project to your IDE 
+5. add spring.config.import property to refer to the config server url
+```
+spring.config.import = configserver:http://localhost:8071
+```
+
+## Adding Microservice Configuration Files to Config server
+As we mentioned before, there are 3 types of search location:
+- file system
+- classpath
+- git repository
+
+###File System search location
+
+1. The active profile property in the config server application.properties should be native if the search location would be the file system, so add the following property:
+
+```
+spring.profiles.active = native
+```
+2. Then add the location of the configuration file system to the config server application.properties as follows:
+
+```
+spring.cloud.config.server.native.searchLocations= file:///${config.dir}
+```
+
+3. create properties file with the same name of the microservice (for example: employee-service.properties)
+4. add the properties file to the same location defined in the config server properties file in the property **spring.cloud.config.server.native.searchLocations**
+
+Example for the properties defined in the employee-service.properties
+```
+employee.name = Shaimaa Shalaby
+employee.title = Senior developer
+```
+5. Add RestController to the EmployeeService ,then use the **@Value** annotation to read the configuration from the configuration file saved in the config server side
+
+```
+@RestController
+@RequestMapping("/employee")
+public class EmployeeController {
+	
+	@Value("${employee.name}")
+	private String employeeName;
+	
+	@Value("${employee.title}")
+	private String employeeTitle;
+	
+	@GetMapping("/name")
+	public String getEmployeeName() {
+		return this.employeeName;
+		
+	}
+	
+	@GetMapping("/title")
+	public String getEmployeeTitle() {
+		return this.employeeTitle;
+		
+	}
+
+```
+6. use Postman application to test the employee-service rest controller and make sure that the microservice could read the configuration
+
+
+### Classpath search location
   
