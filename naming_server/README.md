@@ -27,16 +27,15 @@ The solution for a cloud-based microservice environment is to use a service disc
 
 - **Fault tolerant**
     Service discovery needs to detect when a service instance isn’t healthy and remove that instance from the list of available services that can take client requests.
-    
-    
-    
-    
-    
-    
-    
-    
+        
     
 # Client-Side load balancing approach
 
 ![image](https://github.com/shaimaa-hshalaby/Microservice-with-spring-cloud-guide/assets/3264417/877d754e-0dbe-4f0e-9a00-168dc1876384)
     Note: from spring microservice in action book
+    
+    
+ # Building our Spring Eureka Service
+ 
+ 1. navigate to the spring intializer tool https://start.spring.io/
+ 2. 
