@@ -70,7 +70,7 @@ As we mentioned before, there are 3 types of search locations:
 - classpath
 - git repository
 
-### File System search location
+## File System search location
 
 1. The active profile property in the config server application.properties should be native if the search location would be the file system, so add the following property to the config server application.properties:
 
