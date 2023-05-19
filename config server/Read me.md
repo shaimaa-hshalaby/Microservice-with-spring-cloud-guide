@@ -167,7 +167,7 @@ spring.profiles.active = dev
 ```
 {microservice_name}-{active_profile}.properties
 ```
-for Example: employeeservice-dev.properties
+	for Example: employeeservice-dev.properties
 
 3. you can add configuration files for different environment as much as you can if you follow the mentioned convention
 
