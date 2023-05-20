@@ -35,7 +35,7 @@ The solution for a cloud-based microservice environment is to use a service disc
     Note: from spring microservice in action book
     
     
- # Building our Spring Eureka Service
+ # Building our Spring Eureka Discovery Server
  To include Eureka Server in your project, use the starter with a group ID of *org.springframework.cloud* and an artifact ID of *spring-cloud-starter-netflix-eureka-server*.
  
  1. navigate to the spring intializer tool https://start.spring.io/
@@ -75,6 +75,39 @@ The solution for a cloud-based microservice environment is to use a service disc
      ![image](https://github.com/shaimaa-hshalaby/Microservice-with-spring-cloud-guide/assets/3264417/dfcff679-4ebe-4933-b847-c63bf5244d31)
 
 > Congratulation .. you have now your Eureka naming server is running into your machine
+
+# Building and Registering Eureka Client
+-----
+## How to Include Eureka Client
+
+To include the Eureka Client in your project, use the starter with a group ID of *org.springframework.cloud* and an artifact ID of *spring-cloud-starter-netflix-eureka-client*
+
+1. navigate to the spring intializer tool https://start.spring.io/
+2. choose the following configuration for this exercise
+    - project -> Maven
+    - Language -> Java
+    - Spring boot version -> 2.7.12
+    - packaging -> jar
+    - java version -> 11
+
+ 3. add the following dependencies
+    - Eureka Discovery Client
+    - other dependencies that are needed to build our Microservice
+
+![image](https://github.com/shaimaa-hshalaby/Microservice-with-spring-cloud-guide/assets/3264417/04f0729e-f48b-4abb-88ba-cd168e09ce67)
+
+## Registering with Eureka
+
+- When a client registers with Eureka, it provides meta-data about itself — such as host, port, health indicator URL, home page, and other details.
+- Eureka receives heartbeat messages from each instance belonging to a service. If the heartbeat fails over a configurable timetable, the instance is normally removed from the registry.
+- we need to add the following property to the microservice configuration file to locate the Eureka Discovery Server.
+    
+    ``` 
+    eureka.client.serviceUrl.defaultZone = http://localhost:8761/eureka/
+    ```
+ - By having spring-cloudstarter-netflix-eureka-client on the classpath, the application automatically registers with the Eureka Server.
+
+
 
 
 
