@@ -24,7 +24,8 @@
   - Config Server 
   - Spring Boot DevTools (Optional)
 
-![image](https://github.com/shaimaa-hshalaby/Microservice-with-spring-cloud-guide/assets/3264417/f309b269-0896-433d-b8b3-6ffe239d7f08)
+
+![239523971-f309b269-0896-433d-b8b3-6ffe239d7f08](https://github.com/shaimaa-hshalaby/Microservice-with-spring-cloud-guide/assets/3264417/c70d4d90-01a9-4b78-afeb-0e87ec8e50a7)
 
 4. generate the spring boot maven project
 
@@ -38,7 +39,8 @@ server.port = 8071
 ```
 
 7. Enable the config server by adding the annotation **@EnableConfigServer** to the spring bootstrap class as shown below
-![image](https://github.com/shaimaa-hshalaby/Microservice-with-spring-cloud-guide/assets/3264417/30e98125-92fd-4c04-9531-46d41cccf61a)
+
+![239534715-30e98125-92fd-4c04-9531-46d41cccf61a](https://github.com/shaimaa-hshalaby/Microservice-with-spring-cloud-guide/assets/3264417/30ffe08c-1854-488f-890b-5ebdab119672)
 
 
 ### Initialize the Config client microservice
@@ -56,7 +58,8 @@ server.port = 8071
   - Config Client 
   - Spring Boot DevTools (Optional)
 
-![image](https://github.com/shaimaa-hshalaby/Microservice-with-spring-cloud-guide/assets/3264417/e0a4eda4-e307-40bb-85af-2479546d97e6)
+![239393673-e0a4eda4-e307-40bb-85af-2479546d97e6](https://github.com/shaimaa-hshalaby/Microservice-with-spring-cloud-guide/assets/3264417/eda28206-dad2-4429-b94d-6e1823d68a7b)
+
 
 4. import the generated project to your IDE 
 5. add spring.config.import property to application.properties to refer to the config server url
@@ -124,7 +127,8 @@ public class EmployeeController {
 
 1. create a directory inside the classpath - under the resources folder - as shown below
 
-![image](https://github.com/shaimaa-hshalaby/Microservice-with-spring-cloud-guide/assets/3264417/193f2bec-b9cd-47a5-b6ac-69cdaef12870)
+![239532666-193f2bec-b9cd-47a5-b6ac-69cdaef12870](https://github.com/shaimaa-hshalaby/Microservice-with-spring-cloud-guide/assets/3264417/05bc6b78-ede3-4e82-a9c1-8ec2461cae9f)
+
 
 2. add the configuration files of the config client microservice under this directory
 
@@ -171,7 +175,7 @@ spring.profiles.active = dev
 
 3. you can add configuration files for different environment as much as you can if you follow the mentioned convention
 
-![image](https://github.com/shaimaa-hshalaby/Microservice-with-spring-cloud-guide/assets/3264417/49078838-65b4-4740-ba14-caf6feab4328)
+![image](https://github.com/shaimaa-hshalaby/Microservice-with-spring-cloud-guide/assets/3264417/4400360d-b3eb-4a31-b6a0-acfc0665b7d4)
 
 --------
 
@@ -216,8 +220,7 @@ Spring Boot @ConfigurationProperties is letting developer maps the entire .pr
 we can create a class that bind the data in the properties file to the class properties as follows:
 
 1. the configuration properties file is shown below:
-
-![image](https://github.com/shaimaa-hshalaby/Microservice-with-spring-cloud-guide/assets/3264417/89aa2d6e-6770-445c-b12b-7dd6852da7c9)
+![image](https://github.com/shaimaa-hshalaby/Microservice-with-spring-cloud-guide/assets/3264417/9c40bc1f-c288-4de6-be9d-54c1bc790781)
 
 2. the prefix of all shown properties is employee so we can define the class as follows
 ```
