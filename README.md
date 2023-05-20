@@ -1,5 +1,5 @@
 # Microservice-with-spring-cloud-guide
-a guide to implement a microservice using Spring cloud - used in my courses
+a guide to implement a microservice using Spring cloud - using in my courses
 
 
 ## What is the meaning of Microservices?
