@@ -220,7 +220,9 @@ Spring Boot @ConfigurationProperties is letting developer maps the entire .pr
 we can create a class that bind the data in the properties file to the class properties as follows:
 
 1. the configuration properties file is shown below:
+
 ![image](https://github.com/shaimaa-hshalaby/Microservice-with-spring-cloud-guide/assets/3264417/9c40bc1f-c288-4de6-be9d-54c1bc790781)
+
 
 2. the prefix of all shown properties is employee so we can define the class as follows
 ```
