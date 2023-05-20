@@ -36,6 +36,7 @@ The solution for a cloud-based microservice environment is to use a service disc
     
     
  # Building our Spring Eureka Service
+ To include Eureka Server in your project, use the starter with a group ID of *org.springframework.cloud* and an artifact ID of *spring-cloud-starter-netflix-eureka-server*.
  
  1. navigate to the spring intializer tool https://start.spring.io/
  2. choose the following configuration for this exercise
@@ -49,6 +50,31 @@ The solution for a cloud-based microservice environment is to use a service disc
     - Eureka Server
 
     ![image](https://github.com/shaimaa-hshalaby/Microservice-with-spring-cloud-guide/assets/3264417/9c762b07-1cd9-4915-8917-6d434d7d2982)
+    
+ 4. generate the spring boot project and then import it to your IDE.
+ 5. mark the springboot bootstrap class with **@EnableEurekaServer** annotation to enable the Eureka server.
+ 6. add the following properties to the *application.properties* file
+    ```
+    spring.application.name = naming_server
+    server.port = 8761
+    eureka.instance.hostname = localhost
+    eureka.client.serviceUrl.defaultZone = http://${eureka.instance.hostname}:${server.port}/eureka/
+
+    ```
+    
+ 7. switch off the client-side behavior by adding the following properties to the *application.properties* and to run the naming server in the standalone mode (no other nodes in the cluster)
+ 
+    ```
+    eureka.client.registerWithEureka = false
+    eureka.client.fetchRegistry = false
+    ```
+    
+ 8. run the application and then check if the Eureka server is up and running by navigating to http://localhost:8761/
+ 9. you should see this page with no services instances registered yet.
+ 
+ ![image](https://github.com/shaimaa-hshalaby/Microservice-with-spring-cloud-guide/assets/3264417/dfcff679-4ebe-4933-b847-c63bf5244d31)
+
+> Congratulation .. you have now your Eureka naming server is running into your machine
 
 
 
