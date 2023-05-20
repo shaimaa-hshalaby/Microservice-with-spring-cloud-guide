@@ -31,8 +31,9 @@ The solution for a cloud-based microservice environment is to use a service disc
     
 # Client-Side load balancing approach
 
-![image](https://github.com/shaimaa-hshalaby/Microservice-with-spring-cloud-guide/assets/3264417/877d754e-0dbe-4f0e-9a00-168dc1876384)
-    Note: from spring microservice in action book
+![239621828-877d754e-0dbe-4f0e-9a00-168dc1876384](https://github.com/shaimaa-hshalaby/Microservice-with-spring-cloud-guide/assets/3264417/97947d86-c8df-4e07-9b67-885f8a732a00)
+
+    > Note: from spring microservice in action book
     
     
  # Building our Spring Eureka Discovery Server
@@ -49,7 +50,8 @@ The solution for a cloud-based microservice environment is to use a service disc
  3. add the following dependency
     - Eureka Server
 
-    ![image](https://github.com/shaimaa-hshalaby/Microservice-with-spring-cloud-guide/assets/3264417/9c762b07-1cd9-4915-8917-6d434d7d2982)
+   ![239627931-9c762b07-1cd9-4915-8917-6d434d7d2982](https://github.com/shaimaa-hshalaby/Microservice-with-spring-cloud-guide/assets/3264417/c91b47ac-254f-4dd9-a3b1-c44acadded17)
+
     
  4. generate the spring boot project and then import it to your IDE.
  5. mark the springboot bootstrap class with **@EnableEurekaServer** annotation to enable the Eureka server.
@@ -72,7 +74,8 @@ The solution for a cloud-based microservice environment is to use a service disc
  8. run the application and then check if the Eureka server is up and running by navigating to http://localhost:8761/
  9. you should see this page with no services instances registered yet.
  
-     ![image](https://github.com/shaimaa-hshalaby/Microservice-with-spring-cloud-guide/assets/3264417/dfcff679-4ebe-4933-b847-c63bf5244d31)
+![239679544-dfcff679-4ebe-4933-b847-c63bf5244d31](https://github.com/shaimaa-hshalaby/Microservice-with-spring-cloud-guide/assets/3264417/695b4ced-09a0-4f6d-8bf3-25e66307e93e)
+
 
 > Congratulation .. you have now your Eureka naming server is running into your machine
 
@@ -93,8 +96,8 @@ To include the Eureka Client in your project, use the starter with a group ID of
  3. add the following dependencies
     - Eureka Discovery Client
     - other dependencies that are needed to build our Microservice
-
-![image](https://github.com/shaimaa-hshalaby/Microservice-with-spring-cloud-guide/assets/3264417/04f0729e-f48b-4abb-88ba-cd168e09ce67)
+    
+![239684131-04f0729e-f48b-4abb-88ba-cd168e09ce67](https://github.com/shaimaa-hshalaby/Microservice-with-spring-cloud-guide/assets/3264417/10e7ed99-2b8c-47b2-86a3-449d2cc4d6c7)
 
 ## Registering with Eureka
 
@@ -106,6 +109,8 @@ To include the Eureka Client in your project, use the starter with a group ID of
     eureka.client.serviceUrl.defaultZone = http://localhost:8761/eureka/
     ```
  - By having spring-cloudstarter-netflix-eureka-client on the classpath, the application automatically registers with the Eureka Server.
+ - start the microservice by running the bootstrap class.
+ - navigate to the Eureka server from the browser http://localhost:8761, and make sure that the instance has been registered
 
 
 
