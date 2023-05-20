@@ -72,7 +72,7 @@ The solution for a cloud-based microservice environment is to use a service disc
  8. run the application and then check if the Eureka server is up and running by navigating to http://localhost:8761/
  9. you should see this page with no services instances registered yet.
  
- ![image](https://github.com/shaimaa-hshalaby/Microservice-with-spring-cloud-guide/assets/3264417/dfcff679-4ebe-4933-b847-c63bf5244d31)
+     ![image](https://github.com/shaimaa-hshalaby/Microservice-with-spring-cloud-guide/assets/3264417/dfcff679-4ebe-4933-b847-c63bf5244d31)
 
 > Congratulation .. you have now your Eureka naming server is running into your machine
 
