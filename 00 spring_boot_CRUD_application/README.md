@@ -137,9 +137,8 @@ implemented automatically by the spring data jpa artifact.
       ```
 	
       
-      ### Create The Controller Layer
-      
-       create CourseController class that has the different requests handlers as follows
+      ### Create The Controller LayerC
+      1. Create the CourseController class that has the different requests handlers as follows
 
 	```
 	      @RestController
@@ -176,4 +175,22 @@ implemented automatically by the spring data jpa artifact.
 
 
 	```
+	
+      ### Using Postman to Test the CRUD operation 
+      
+      1. Create Course request with method POST
+
+
+      2. add json object that represented the created course in 
+      
+	      ```
+	      {
+		    "id" : 1,
+		    "courseTitle": "Microservice",
+		    "courseDescription": "Microservice with Spring cloud",
+		    "instructorId":1
+	      }
+	      ```
+
+	     ![image](https://github.com/shaimaa-hshalaby/Microservice-with-spring-cloud-guide/assets/3264417/9048b7aa-72bd-4779-9eda-6abcebec24e2)
 
