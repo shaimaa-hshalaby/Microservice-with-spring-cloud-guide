@@ -25,5 +25,6 @@ group of loosely coupled services
 
 ## Microservice tutorials links:
 
+- [Full Guide of Spring Boot application with Restful webservices and CRUD operations] (00 spring_boot_CRUD_application)
 - [Config Server tutorial](config_server)
 - [Service Descovery - Naming server tutorial](naming_server)
