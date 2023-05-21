@@ -84,4 +84,96 @@ implemented automatically by the spring data jpa artifact.
 
 ### Create The Service Layer
 
+1. create CourseService interface that has the signature of all CRUD methods
+
+      ```
+      public interface CourseService {
+
+            public Course getCourseById(int id);
+            public List<Course> getAllCourses();
+            public void createCourse(Course course);
+            public void updateCourse(Course course);
+            public void deleteCourse(int id);
+
+      }
+      ```
+
+2. Create an implementation of the CourseService interface annotated with @Service
+
+      ```
+      @Service
+      public class CourseServiceImpl implements CourseService {
+
+            @Autowired
+            private CourseRepository courseRepository;
+
+            @Override
+            public Course getCourseById(int id) {
+                  Optional<Course> result= courseRepository.findById(id);
+                  return result.get();
+            }
+
+            @Override
+            public List<Course> getAllCourses() {
+                  List<Course> courses = courseRepository.findAll();
+                  return courses;
+            }
+
+            @Override
+            public void createCourse(Course course) {
+                  course.setId(0);
+                  courseRepository.save(course);
+            }
+
+            @Override
+            public void updateCourse(Course course) {
+                  courseRepository.save(course);
+            }
+
+            @Override
+            public void deleteCourse(int id) {
+                  courseRepository.deleteById(id);
+            }
+      ```
+	
+      
+      ### Create The Controller Layer
+      
+      1. create CourseController class that has the different requests handlers as follows
+
+```
+      @RestController
+      @RequestMapping("/api/course")
+      public class CourseController {
+
+            @Autowired
+            private CourseService courseService;
+
+            @GetMapping
+            public List<Course> getAllCourses() {
+                  return courseService.getAllCourses();
+            }
+
+            @GetMapping("/{id}")
+            public Course getCourseById(@PathVariable int id) {
+                  return courseService.getCourseById(id);
+            }
+
+            @PostMapping
+            public void createCourse(@RequestBody Course course) {
+                  courseService.createCourse(course);
+            }
+
+            @PutMapping
+            public void updateCourse(@RequestBody Course course) {
+                  courseService.updateCourse(course);
+            }
+
+            @DeleteMapping("{/id}")
+            public void deleteCourse(@PathVariable int id) {
+                  courseService.deleteCourse(id);
+            }
+
+
+```
 
