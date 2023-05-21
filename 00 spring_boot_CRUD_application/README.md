@@ -21,7 +21,12 @@
 ![image](https://github.com/shaimaa-hshalaby/Microservice-with-spring-cloud-guide/assets/3264417/97a001ec-98fb-44f0-a2c5-3f7519dba671)
 
 4. import the generated project into your IDE
-
+5. add application name and server port configuration to the application.properties file
+      ```
+      spring.application.name = course-service
+      server.port = 8090
+      ```
+      
 ### Create The domain Layer
 we need here to create the Entities classes that map to the database tables and the Repository Interface for Each Entity that extends JpaRepository to obtain the CRUD operations
 implemented automatically by the spring data jpa artifact.
@@ -49,3 +54,34 @@ implemented automatically by the spring data jpa artifact.
 
     }
     ```
+    
+ 2. add the database configuration to the application.properties as follows
+
+      ```
+      
+      spring.datasource.url = jdbc:mysql://localhost:3306/courses_db
+      spring.datasource.username =root
+      spring.datasource.password=root
+      
+      ```
+      
+ 3. add the following properties to the application.properties to force Spring Data jpa artifact to generate the schema from the Entities classes
+
+      ```
+      spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQLDialect
+      spring.jpa.hibernate.ddl-auto=update
+      
+      ```
+      
+  4. Add CourseRepository interface that extends JpaRepository to obtain CRUD operations implemented automatically, you don't need to implement any method.
+
+       ```
+            public interface CourseRepository 
+                                    extends JpaRepository<Course, Integer> {
+
+            }
+       ```
+
+### Create The Service Layer
+
+
