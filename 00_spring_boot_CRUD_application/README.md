@@ -5,18 +5,18 @@
 
 1. navitage to springboot intializer to generate the intial springboot project.
 3. create a project called course-service and choose the following configuration for this exercise
-      project -> Maven
-      Language -> Java
-      Spring boot version -> 2.7.12
-      packaging -> jar
-      java version -> 11
+      - project -> Maven
+      - Language -> Java
+      - Spring boot version -> 2.7.12
+      - packaging -> jar
+      - java version -> 11
       
 3. add the following dependencies
-      Spring Web --> To be able to create REST APIs
-      Spring Data JPA --> to use JPA as the domain layer
-      MySQL Driver
-      Lombok (Optional) --> to reduce the boilerplate code
-      Spring Boot DevTools (Optional) --> for fast application restart
+      - Spring Web --> To be able to create REST APIs
+      - Spring Data JPA --> to use JPA as the domain layer
+      - MySQL Driver
+      - Lombok (Optional) --> to reduce the boilerplate code
+      - Spring Boot DevTools (Optional) --> for fast application restart
 
 ![image](https://github.com/shaimaa-hshalaby/Microservice-with-spring-cloud-guide/assets/3264417/97a001ec-98fb-44f0-a2c5-3f7519dba671)
 
@@ -28,6 +28,7 @@
       ```
       
 ### Create The domain Layer
+
 we need here to create the Entities classes that map to the database tables and the Repository Interface for Each Entity that extends JpaRepository to obtain the CRUD operations
 implemented automatically by the spring data jpa artifact.
 
@@ -58,7 +59,6 @@ implemented automatically by the spring data jpa artifact.
  2. add the database configuration to the application.properties as follows
 
       ```
-      
       spring.datasource.url = jdbc:mysql://localhost:3306/courses_db
       spring.datasource.username =root
       spring.datasource.password=root
@@ -137,7 +137,7 @@ implemented automatically by the spring data jpa artifact.
       ```
 	
       
-      ### Create The Controller LayerC
+      ### Create The Controller Layer
       1. Create the CourseController class that has the different requests handlers as follows
 
 	```
@@ -179,10 +179,8 @@ implemented automatically by the spring data jpa artifact.
       ### Using Postman to Test the CRUD operation 
       
       1. Create Course request with method POST
+      2. choose Body-> raw -> JSON and add the following course json object to the request body
 
-
-      2. add json object that represented the created course in 
-      
 	      ```
 	      {
 		    "id" : 1,
@@ -191,6 +189,22 @@ implemented automatically by the spring data jpa artifact.
 		    "instructorId":1
 	      }
 	      ```
+	      
+	      ![image](https://github.com/shaimaa-hshalaby/Microservice-with-spring-cloud-guide/assets/3264417/08954e83-abce-4434-b643-5a41d46b3e3e)
+     
+     3. after sending the request, a new course record should be added to the database
+     
+     4. you can add more courses, and test the following scenarios
+     	- retrieve all courses
+     	- retrieve course by id
+     	- update course
+     	- delete course
+     	by changing the HTTP method and the endpoint in the Postman application
+	
+	
+	Thank you,
+	Shaimaa
 
-	     ![image](https://github.com/shaimaa-hshalaby/Microservice-with-spring-cloud-guide/assets/3264417/9048b7aa-72bd-4779-9eda-6abcebec24e2)
+
+
 
