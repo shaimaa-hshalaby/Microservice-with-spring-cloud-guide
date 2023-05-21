@@ -68,7 +68,7 @@ implemented automatically by the spring data jpa artifact.
  3. add the following properties to the application.properties to force Spring Data jpa artifact to generate the schema from the Entities classes
 
       ```
-      spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQLDialect
+      spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL5Dialect
       spring.jpa.hibernate.ddl-auto=update
       
       ```
