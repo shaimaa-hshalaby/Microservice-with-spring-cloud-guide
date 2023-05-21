@@ -139,41 +139,41 @@ implemented automatically by the spring data jpa artifact.
       
       ### Create The Controller Layer
       
-      1. create CourseController class that has the different requests handlers as follows
+       create CourseController class that has the different requests handlers as follows
 
-```
-      @RestController
-      @RequestMapping("/api/course")
-      public class CourseController {
+	```
+	      @RestController
+	      @RequestMapping("/api/course")
+	      public class CourseController {
 
-            @Autowired
-            private CourseService courseService;
+		    @Autowired
+		    private CourseService courseService;
 
-            @GetMapping
-            public List<Course> getAllCourses() {
-                  return courseService.getAllCourses();
-            }
+		    @GetMapping
+		    public List<Course> getAllCourses() {
+			  return courseService.getAllCourses();
+		    }
 
-            @GetMapping("/{id}")
-            public Course getCourseById(@PathVariable int id) {
-                  return courseService.getCourseById(id);
-            }
+		    @GetMapping("/{id}")
+		    public Course getCourseById(@PathVariable int id) {
+			  return courseService.getCourseById(id);
+		    }
 
-            @PostMapping
-            public void createCourse(@RequestBody Course course) {
-                  courseService.createCourse(course);
-            }
+		    @PostMapping
+		    public void createCourse(@RequestBody Course course) {
+			  courseService.createCourse(course);
+		    }
 
-            @PutMapping
-            public void updateCourse(@RequestBody Course course) {
-                  courseService.updateCourse(course);
-            }
+		    @PutMapping
+		    public void updateCourse(@RequestBody Course course) {
+			  courseService.updateCourse(course);
+		    }
 
-            @DeleteMapping("{/id}")
-            public void deleteCourse(@PathVariable int id) {
-                  courseService.deleteCourse(id);
-            }
+		    @DeleteMapping("{/id}")
+		    public void deleteCourse(@PathVariable int id) {
+			  courseService.deleteCourse(id);
+		    }
 
 
-```
+	```
 
