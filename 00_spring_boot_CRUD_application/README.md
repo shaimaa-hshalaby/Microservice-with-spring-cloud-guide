@@ -134,6 +134,7 @@ implemented automatically by the spring data jpa artifact.
             public void deleteCourse(int id) {
                   courseRepository.deleteById(id);
             }
+	  }
       ```
 	
       
@@ -168,11 +169,11 @@ implemented automatically by the spring data jpa artifact.
 			  courseService.updateCourse(course);
 		    }
 
-		    @DeleteMapping("{/id}")
+		    @DeleteMapping("/{id}")
 		    public void deleteCourse(@PathVariable int id) {
 			  courseService.deleteCourse(id);
 		    }
-
+          }
 
 	```
 	
