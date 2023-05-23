@@ -24,6 +24,13 @@
 ## Building the Course-service
 [Follow this guide to build the course-service](../00_spring_boot_CRUD_application)
 
+- we can create course object using the postman application as follows:
+    ![image](https://github.com/shaimaa-hshalaby/Microservice-with-spring-cloud-guide/assets/3264417/a3d04766-e3a5-4218-9bcf-dbc673619816)
+
+- test getting course by id using the postman application as follows:
+   ![image](https://github.com/shaimaa-hshalaby/Microservice-with-spring-cloud-guide/assets/3264417/d5493ae2-4b6c-4a54-852d-01728306706e)
+
+
 ## Build the Instructor-service
 
 1. create Springboot application from the spring initializer 
@@ -57,7 +64,7 @@
     ```
     
   5. create *instructor_db* schema into your mysql server instance.
-  6. add the database configuration to the application.properties as follows
+  6. add the database configuration to the application.properties as follows:
 
       ```
       spring.datasource.url = jdbc:mysql://localhost:3306/instructor_db
@@ -68,7 +75,7 @@
       spring.jpa.hibernate.ddl-auto=update
       
       ```
-7. add InstructorRepository that extends JpaRepository
+7. add *InstructorRepository* that extends *JpaRepository* to generate the implementation automatically using Spring Data JPA module
 
       ```
       
@@ -78,7 +85,7 @@
         }
         
       ```
- 8. Create the InstructorService interface
+ 8. Create the *InstructorService* interface
   ```
      public interface InstructorService {
 
@@ -88,7 +95,7 @@
     }
  ```
  
- 9. Create an implementation of the InstructorService interface annotated with @Service
+ 9. Create the *InstructorServiceImpl* that implement the  *InstructorService* interface and annotate it with *@Service*
  ```
     @Service
     public class InstructorServiceImpl implements InstructorService {
@@ -111,6 +118,42 @@
 
     }
  ```
+ 
+ 10. Create *InstructorController* to declare CRUD Endpoints as follows:
+ ```
+        @RestController
+        @RequestMapping("/api/instructor")
+        public class InstructorController {
+
+            @Autowired
+            private InstructorService service;
+
+            @GetMapping("/{id}")
+            public Instructor getInstructorById(@PathVariable int id) {
+                return service.getInstructorById(id);
+            }
+
+            @PostMapping
+            public void saveInstructor(@RequestBody Instructor instructor) {
+                service.saveInstructor(instructor);
+            }
+
+
+        }
+
+```
+
+11. start the instructor-service by running the springboot bootstrap class.
+12. we can now create an instructor from the postman as follows:
+    ![image](https://github.com/shaimaa-hshalaby/Microservice-with-spring-cloud-guide/assets/3264417/447926e8-cd57-4c2a-bcfa-1e23e8838a1e)
+
+## Create CourseDTO Class
+
+we need to retrieve the instructor data nested into the course JSON object instead of retrieve the instructor id as shown below:
+
+
+
+    
 ## Making Synchronous call using RestTemplate
 
 
