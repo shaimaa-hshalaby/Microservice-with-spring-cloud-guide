@@ -55,7 +55,7 @@ implemented automatically by the spring data jpa artifact.
 
     }
     ```
- 2. create courses_db schema into your mysql server instance.
+ 2. create *courses_db* schema into your mysql server instance.
  3. add the database configuration to the application.properties as follows
 
       ```
