@@ -55,8 +55,8 @@ implemented automatically by the spring data jpa artifact.
 
     }
     ```
-    
- 2. add the database configuration to the application.properties as follows
+ 2. create courses_db schema into your mysql server instance.
+ 3. add the database configuration to the application.properties as follows
 
       ```
       spring.datasource.url = jdbc:mysql://localhost:3306/courses_db
@@ -65,7 +65,7 @@ implemented automatically by the spring data jpa artifact.
       
       ```
       
- 3. add the following properties to the application.properties to force Spring Data jpa artifact to generate the schema from the Entities classes
+ 4. add the following properties to the application.properties to force Spring Data jpa artifact to generate the schema from the Entities classes
 
       ```
       spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL5Dialect
@@ -73,7 +73,7 @@ implemented automatically by the spring data jpa artifact.
       
       ```
       
-  4. Add CourseRepository interface that extends JpaRepository to obtain CRUD operations implemented automatically, you don't need to implement any method.
+  5. Add CourseRepository interface that extends JpaRepository to obtain CRUD operations implemented automatically, you don't need to implement any method.
 
        ```
             public interface CourseRepository 
