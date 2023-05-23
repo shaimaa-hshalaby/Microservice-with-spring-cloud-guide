@@ -151,6 +151,11 @@
 
 we need to retrieve the instructor data nested into the course JSON object instead of retrieve the instructor id as shown below:
 
+![image](https://github.com/shaimaa-hshalaby/Microservice-with-spring-cloud-guide/assets/3264417/3fe5763d-7ba4-43d5-b98c-bd9fe74e6710)
+
+ instead of 
+   
+![image](https://github.com/shaimaa-hshalaby/Microservice-with-spring-cloud-guide/assets/3264417/a6f8e504-6a26-4d75-8eae-a328231ad5e4)
 
 
     
