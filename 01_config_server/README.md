@@ -62,7 +62,12 @@ server.port = 8071
 
 
 4. import the generated project to your IDE 
-5. add spring.config.import property to application.properties to refer to the config server url
+5. add an application name and server port to the configuration file application.properties
+```
+spring.application.name = employee-service
+server.port = 8090
+```
+7. add spring.config.import property to application.properties to refer to the config server url
 ```
 spring.config.import = configserver:http://localhost:8071
 ```
