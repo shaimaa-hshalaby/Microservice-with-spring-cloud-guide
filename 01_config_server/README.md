@@ -20,9 +20,7 @@
   - java version -> 11
 
 3. add the following dependencies
-  - Spring Web 
   - Config Server 
-  - Spring Boot DevTools (Optional)
 
 
 ![239523971-f309b269-0896-433d-b8b3-6ffe239d7f08](https://github.com/shaimaa-hshalaby/Microservice-with-spring-cloud-guide/assets/3264417/c70d4d90-01a9-4b78-afeb-0e87ec8e50a7)
